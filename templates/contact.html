@@ -1,0 +1,24 @@
+{% set link="contact" %}
+{% extends "_base.html" %}
+
+{% block body %}
+
+<div class="container">
+    <p>Don't hesitate in contacting us at <span class="mymail">weblab</span> <span class="mydomain">[at] deusto.es</span></p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function(){
+        $(".mymail").each(function(index) {
+            var addr = $(this).text().replace(/\n/g,"").replace(/ /g,"");
+            $(this).html('<a href="mailto:'+addr+'@deusto.es" >'+ addr +'@deusto.es</a>');
+        });
+        $(".mydomain").each(function(index) {
+            $(this).hide();
+        });
+    });
+</script>
+{% endblock %}
