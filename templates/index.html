@@ -8,8 +8,9 @@
             <img src="assets/img/logo.png" width="50%">
         </div>
         <div style="text-align: center">
-            <p>Your labs, on the net</p>
+            <p>Your labs, on the Internet</p>
         </div>
+
         <div style="text-align: center">
                 <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/"><span class="glyphicon glyphicon-play"></span> Try it!</a>
                 <span class="spacer"></span>
@@ -19,104 +20,125 @@
     </div>
 
     <div class="row">
+        <div class="col-lg-8">
+            <img src="assets/img/weblab_boxes.png" height="250px"/>
+            <span class="spacer"></span>
+            <img src="assets/img/weblab_web.png"   height="250px"/>
+        </div>
+        <div class="col-lg-4">
+            <h2>What is a remote lab?</h2>
+            <p>A remote laboratory is a <a href="software.html">software</a> and 
+            <a href="equipment.html">hardware</a> tool that allows 
+            students to remotely access real equipment located in the university. 
+            Students use this equipment as if they were in a hands-on-lab session.
+            </p>
+            <div style="text-align: center; margin-top: 20px">
+                <button class="btn btn-danger" onclick="loadVideo(this, 'http://www.youtube.com/embed/kDly3gMkzng', 1.8);"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</button>
+                <!-- TODO --><br>
+                (the 1:20 first minutes is not about remote labs, but about the University of Deusto. Might not be good for here)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="page-header">
+            <h1>WebLab-Deusto</h1>
+        </div>
 
         <div class="col-lg-4">
-            <h1>Access existing labs</h1>
+            <h2>Access existing labs</h2>
             <p>
-                Blah blah blah
-                Tema de que:
-                <ul>
-                    <li>tienes wCloud y registrarte completamente gratis</li>
-                    <li>puedes instalarte WebLab-Deusto y con el acceder a nuestros laboratorios</li>
-                </ul>
+                The <a href="https://cloud.weblab.deusto.es/">wCloud system</a> aims
+                to enable teachers to register their schools and use existing labs in class
+                automatically. No software or hardware installation is required.
+            </p>
+            <p>
+                The other approach is to download and install the software system to 
+                keep the database local. See the 
+                <a href="http://weblabdeusto.readthedocs.org/">instructions</a> for 
+                further information.
             </p>
         </div>
 
         <div class="col-lg-4">
-            <h1>Create your own labs</h1>
+            <h2>Create your own labs</h2>
             <p>
-                If you have certain equipment and you want to put it online, you can use WebLab-Deusto.
-                It already provides authentication, authorization, scheduling mechanisms, administrative
-                tools or integration in Learning Management Systems (such as Moodle).
+                If you have certain equipment and you want to put it online, you can use WebLab-Deusto, 
+                which is Open Source. It already provides authentication, authorization, scheduling mechanisms, administrative
+                tools or integration in Learning Management Systems (such as Moodle). 
             </p>
+            <p>
+                See the <a href="software.html">feature summary</a> for more information or the 
+                <a href="http://weblabdeusto.readthedocs.org/">documentation</a> to read how to do it.
+            </p>
+<!--            <img src="assets/img/robot_front.jpg" width="100%"/> -->
         </div>
 
         <div class="col-lg-4">
-            <h1>Build or acquire labs</h1>
+            <h2>Acquire laboratories</h2>
             <p>
-                My text is here
-                My text is here
-                My text is here
-                My text is here
-                My text is here
-                My text is here
-                My text is here
-                My text is here
+                The University of Deusto, partnering other companies, also develops custom equipment.
+                This has certain associated costs, so <a href="contact.html">contact us for further information</a>.
             </p>
         </div>
     </div>
-    
+
     <div class="page-header">
     <h1>Sample labs</h1>
-    <p><a href="">See more <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+    <p><a href="">See full list <span class="glyphicon glyphicon-arrow-right"></span></a></p>
     </div>
     
     <div class="row">
+
         <div class="col-lg-6">
-            <h2>FPGA</h2>
-            <p>ud-fpga lets you remotely practise with a Field Programmable Gate Array. Through the Xilinx software, you can write a FPGA program locally as you normally would. Once the program is compiled, and ready to be tested, you should simply upload the binary ".bit" file through the experiment.</p>
+            <h2>Robot</h2>
 
-            <p>ud-fpga will automatically program the FPGA board with the binary you provided, and start running it. To see the results, a Webcam is of course provided. You may also interact with the board remotely, by using the provided widgets. Though the widgets themselves might appear artificial, they will send a signal to the board just like their physical counterparts would.</p>
+            <p>robot-standard lets you program the bot yourself, with any program you wish.</p>
 
-            <p>However, due to certain safety concerns, in the demo version you can't upload your own file for this demo. Instead, a specific demo program (which has already been uploaded) will be used. Everything else will work as in the standard FPGA experiment.</p>
+            <p>The bot uses a PIC processor, so the program should be written using the Xilinx PIC compiler. It is noteworthy that the bot has, among other things, infrared sensors, to which the developer has access.</p>
 
-            <p><b>Target audience:</b> Electronics Engineering students.</p>
+            <div style="text-align: center">
+                <img src="assets/img/robot.jpg" width="50%"/>
+            </div>
 
-            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+            <p><b>Target audience:</b> engineering students in general, certain secondary schools.</p>
+
+            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=Robot%20experiments&exp.name=robot-movement"><span class="glyphicon glyphicon-play"></span> Try it!</a>
             <span class="spacer"></span>
-            <a class="btn btn-danger"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
+            <a class="btn btn-success" href="http://weblabdeusto.readthedocs.org/en/latest/sample_labs.html#robot"><span class="glyphicon glyphicon-list-alt"></span> Read more</a>
+            <span class="spacer"></span>
+            <button class="btn btn-danger" onClick="loadVideo(this, 'http://www.youtube.com/embed/1WWAZVyuOBg', 1.4)"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
         </div>
 
         <div class="col-lg-6">
             <h2>VISIR</h2>
 
-            <p>ud-demo-pld lets you remotely practise with a Programmable Logic Device.</p>
+            <p><a href="http://openlabs.bth.se/electronics">BTH OpenLabs VISIR</a> (Virtual Instrument Systems In Reality) is a Remote Laboratory developed in the <a href="http://www.bth.se/">Blekinge Institute of Technology</a>, which supports remote experimentation with real electronic circuits.</p>
 
-            <p>With the standard PLD experiment, through the Xilinx software you can write a PLD program locally as you normally would. Once the program is compiled, and ready to be tested, you can simply upload the binary ".jed" file, and it will be programmed on the physical board and run.</p>
+            <p>Students create circuits using the web interface, such as the following (where two resistors, of 10k and 1k are placed in serial and connected to the Digital MultiMeter):</p>
 
-            <p>However, due to certain safety concerns, you can't upload your own file for this demo. Instead, a specific demo program (which has already been uploaded) will be used. Everything else will work as in the standard FPGA experiment.</p>
+            <div style="text-align: center">
+                <img src="assets/img/visir_circuit.png" width="60%"/>
+            </div>
 
-            <p>That binary file will be automatically programmed into the board, and it will start running. To see the results, a Webcam is provided. You may also interact with the board remotely, by using the provided widgets. Though the widgets themselves might appear artificial, they will send a signal to the board just like their physical counterparts would.</p>
+            <p>And as a result of this, the digital multimeter will show the sum of the two resistors:</p>
 
-            <p>As the FPGA, the CPLD laboratory is running in the WebLab-Box. However, two different laboratories are available. The queue of students is balanced between both copies, so it goes twice faster.</p>
+            <div style="text-align: center">
+                <img src="assets/img/visir_result.png" width="60%"/>
+            </div>
 
-            <p><b>Target audience:</b> Electronics Engineering students.</p>
 
-            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=PLD%20experiments&exp.name=ud-demo-pld"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+            <p><b>Target audience:</b> It depends on how many principles are taught. It has been used with secondary school students, as well as with electronics engineering courses.</p>
+
+
+            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=Visir%20experiments&exp.name=visir"><span class="glyphicon glyphicon-play"></span> Try it!</a>
             <span class="spacer"></span>
-            <a class="btn btn-danger" href="http://www.youtube.com/watch?v=zON7oYtssrw"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
-        </div>
-
-        <div class="col-lg-6">
-            <h2>CPLD</h2>
-
-            <p>ud-demo-pld lets you remotely practise with a Programmable Logic Device.</p>
-
-            <p>With the standard PLD experiment, through the Xilinx software you can write a PLD program locally as you normally would. Once the program is compiled, and ready to be tested, you can simply upload the binary ".jed" file, and it will be programmed on the physical board and run.</p>
-
-            <p>However, due to certain safety concerns, you can't upload your own file for this demo. Instead, a specific demo program (which has already been uploaded) will be used. Everything else will work as in the standard FPGA experiment.</p>
-
-            <p>That binary file will be automatically programmed into the board, and it will start running. To see the results, a Webcam is provided. You may also interact with the board remotely, by using the provided widgets. Though the widgets themselves might appear artificial, they will send a signal to the board just like their physical counterparts would.</p>
-
-            <p>As the FPGA, the CPLD laboratory is running in the WebLab-Box. However, two different laboratories are available. The queue of students is balanced between both copies, so it goes twice faster.</p>
-
-            <p><b>Target audience:</b> Electronics Engineering students.</p>
-
-            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=PLD%20experiments&exp.name=ud-demo-pld"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+            <a class="btn btn-success" href="http://weblabdeusto.readthedocs.org/en/latest/sample_labs.html#visir"><span class="glyphicon glyphicon-list-alt"></span> Read more</a>
             <span class="spacer"></span>
-            <a class="btn btn-danger" href="http://www.youtube.com/watch?v=zON7oYtssrw"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
-        </div>
+            <button class="btn btn-danger" onClick="loadVideo(this, 'http://www.youtube.com/embed/vI5aM6Yq3S4', 1.4)"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
 
+        </div>
     </div>
 </div>
 
