@@ -1,0 +1,107 @@
+{% set link="team" %}
+{% extends "_base.html" %}
+{% block body %}
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Related academic projects and dissertations</h1>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Dissertation type</th>
+                <th>Title</th>
+                <th>Language</th>
+                <th>Date</th>
+                <th>Directed by</th>
+                <th>Download link</th>
+                <th>Slides link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gustavo Mart&iacute;n</td>
+                <td>Telecommunications Grade <b>*</b></td>
+                <td>Foo bar</td>
+                <td>Spanish</td>
+                <td>July 9th, 2013</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td width="12%">Luis Rodriguez-Gil</td>
+                <td>Computer Engineering and Engineering in Industrial Organization <b>**</b></td>
+                <td width="30%"><i>Dise&ntilde;o e implementaci&oacute;n de la plataforma Boole-WebLab-Deusto para el prototipado r&aacute;pido de sistemas digitales mediante el uso de laboratorios remotos y realidad aumentada</i></td>
+                <td>Spanish</td>
+                <td>June 18th, 2013</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td><a href="http://www.weblab.deusto.es/pub/pfc_luis.pdf">link</a></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>I&ntilde;igo Iturrate</td>
+                <td>Industrial Electronics Grade <b>*</b></td>
+                <td>Foo bar</td>
+                <td>Spanish</td>
+                <td>June 13th, 2013</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Pablo Ordu&ntilde;a</td>
+                <td>PhD dissertation</td>
+                <td width="30%"><i>Transitive and scalable federation model for remote laboratories</i></td>
+                <td>English</td>
+                <td>May 31st, 2013</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td><a href="http://www.weblab.deusto.es/pub/dissertation_pablo.pdf">link</a></td>
+                <td><a href="http://www.weblab.deusto.es/pub/slides/dissertation_pablo/">link</a></td>
+            </tr>
+            <tr>
+                <td>Unai Hern&aacute;ndez</td>
+                <td>PhD dissertation</td>
+                <td width="30%"><i>Metodolog&iacute;a de control independiente de instrumentos y experimentos para su despliegue en laboratorios remotos</i></td>
+                <td>Spanish</td>
+                <td>May 8th, 2012</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td><a href="http://www.weblab.deusto.es/pub/dissertation_unai.pdf">link</a></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Jaime Irurzun</td>
+                <td>Computer Engineering <b>***</b></td>
+                <td width="30%"><i>Integraci&oacute;n de un microbot en  Second Life bajo una arquitectura  distribuida de laboratorios remotos</i></td>
+                <td>Spanish</td>
+                <td>September 18th, 2009</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td><a href="http://www.weblab.deusto.es/pub/pfc_jaime.pdf">link</a></td>
+                <td><a href="http://www.weblab.deusto.es/pub/pfc_jaime_slides.pdf">link</a></td>
+            </tr>
+            <tr>
+                <td>Pablo Ordu&ntilde;a</td>
+                <td>Computer Engineering <b>***</b></td>
+                <td width="30%"><i>WebLab-Deusto: implementaci&oacute;n de un laboratorio remoto distribuido basado en Web 2.0</i></td>
+                <td>Spanish</td>
+                <td>June 11th, 2007</td>
+                <td>Javier Garc&iacute;a Zubia</td>
+                <td><a href="http://www.weblab.deusto.es/pub/pfc_pablo.pdf">link</a></td>
+                <td><a href="http://www.weblab.deusto.es/pub/pfc_pablo_slides.pdf">link</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="col-lg-6 col-lg-push-6">
+        <ul>
+            <li><b>*</b> Grades are 4-year degrees in the University of Deusto after the <a href="http://en.wikipedia.org/wiki/Bologna_process">Bologna process</a>.</li>
+            <li><b>**</b> Computer Engineering and Engineering in Industrial Organization is a 6-year <a href="http://en.wikipedia.org/wiki/Double_degree">double degree</a>.</b></li>
+            <li><b>***</b> Computer Engineering used to be a 5-year degree in the University of Deusto prior to the <a href="http://en.wikipedia.org/wiki/Bologna_process">Bologna process</a>.</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
