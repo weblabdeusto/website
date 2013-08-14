@@ -61,7 +61,11 @@
         </div>
 
         <div class="col-lg-4 text-center">
-            <h2>News</h2>
+            <h2>News <img src="assets/img/feed_icon.png" width="30px" style="margin-bottom: 5px; margin-left: 15px"/></h2>
+
+            <div id="news_contents" class="text-left">
+                <div class='alert'>Loading...</div>
+            </div>
         </div>
     </div>
 
@@ -169,4 +173,43 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function(){
+        var jqxhr = $.get("https://www.weblab.deusto.es/webcam/rss/feed")
+          .done(function(data) { 
+            var xml = $.parseXML(data);
+            var $xml = $( xml );
+            var MAX_POSTS = 8;
+
+            var texts = [];
+
+            $xml.find("item").each(function (pos, data) {
+                // Skip the first item
+                if ( pos > 1 && pos < MAX_POSTS + 2 ) {
+                    var $data   = $(data);
+                    var title   = $data.find('title').text();
+                    var link    = $data.find('link').text();
+                    var pubDate = $data.find('pubDate').text();
+
+                    var splittedPubDate = pubDate.split(" ");
+                    var day = parseInt(splittedPubDate[1]);
+                    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                    var month = months.indexOf(splittedPubDate[2]) + 1;
+                    var year = parseInt(splittedPubDate[3]);
+
+                    texts.push("<a href='" + link + "'>" + year + "/" + month + "/" + day + " - " + title + "</a>");
+                }
+            });
+            
+            $("#news_contents").html(texts.join("<br/>"));
+
+          })
+          .fail(function() { 
+            $("#news_contents").html("<div class='alert alert-danger'><b>Oh no!</b> I couldn't load news at this moment. <br/> Try back later.</div>");
+          });
+    });
+</script>
 {% endblock %}
