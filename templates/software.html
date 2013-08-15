@@ -2,8 +2,107 @@
 {% extends "_base.html" %}
 {% block body %}
 
-Adopting the software allows you to...
+<div class="container">
 
-scheduling, federation, LMS integration, user tracking...
+    <div class="page-header text-center">
+        <h1>Software</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-lg-push-1 text-center">
+            <h2>Extensible</h2>
+
+            <p>WebLab-Deusto is designed to ease the development of remote laboratories. It provides APIs and different approaches to include new or exisiting remote labs. Every remote lab developed with WebLab-Deusto will benefit from the features detailed below, as well as by those features implemented in the future.</p>
+        </div>
+
+        <div class="col-lg-4 col-lg-push-2 text-center">
+            <h2>Documentation</h2>
+
+            <p>Instructions on how to <a href="http://weblabdeusto.readthedocs.org/en/latest/#users">install and customize the system</a> and how to <a href="http://weblabdeusto.readthedocs.org/en/latest/#remote-laboratory-development-and-management">create new labs</a> is available in our documentation website:</p>
+
+            <a href="http://weblabdeusto.readthedocs.org/">http://weblabdeusto.readthedocs.org/</a>
+        </div>
+    </div>
+
+    <div class="page-header text-center">
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4 text-center">
+            <h2>LMS integration</h2>
+            <p>WebLab-Deusto laboratories can be accessed from Learning Management Systems (LMSs, such as Moodle or Sakai) in a secure way, relying on the LMS for authentication and authorization (e.g., who is in the course). See more information in the <a href="http://gateway4labs.readthedocs.org/">gateway4labs initiative</a>.</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>Scheduling</h2>
+            <p>WebLab-Deusto guarantees exclusive access to the laboratories through a priority queue subsystem. It can be customized to support multiple concurrent (optionally collaborative) users to a single laboratory.</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>User tracking</h2>
+            <p>WebLab-Deusto stores what students did in the laboratory (who accessed to which lab, when, what activities were done) to enable analytics.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 text-center">
+            <h2>Authentication</h2>
+            <p>Users can be authenticated validating their credentials with a password securely stored in the database. However, WebLab-Deusto also supports LDAP (a directory protocol popular in universities), OAuth 2.0 (e.g., Facebook) or OpenID. Furthermore, it is extensible, so developers can adapt it for other institutions.</p>
+        </div>
+
+
+
+        <div class="col-lg-4 text-center">
+            <h2>Administration</h2>
+            <p>WebLab-Deusto provides web administration tools so administrators can manage users, labs or permissions, and track the usage performed by students.</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>Mobile devices</h2>
+            <p>APIs are provided so lab developers can create alternative user interfaces for mobile devices. Try for instance <a href="labs.html">the logic lab</a>.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 text-center">
+            <h2>Interoperability</h2>
+            <p>WebLab-Deusto provides programmable external interfaces and internal plug-in systems. This makes it possible to integrate WebLab-Deusto labs in third party systems or to embed external labs in WebLab-Deusto. For instance, there are bidirectional bridges <a href="http://www.sciencedirect.com/science/article/pii/S0747563213001416">with the iLab Shared Architecture</a> or <a href="http://dx.doi.org/10.1109/EduCon.2013.6530259">with the UNR (Universidad Nacional de Rosario, Argentina) FCEIA Physics lab</a>.</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>Sharing</h2>
+            <p>asdf</p>
+        </div>
+
+
+        <div class="col-lg-4 text-center">
+            <h2>Cross platform</h2>
+            <p>WebLab-Deusto is supported for GNU/Linux, Mac OS X and Microsoft Windows systems. It additionally should run on other operating systems, such as BSD.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4 text-center">
+            <h2>Scalability</h2>
+            <p>asdf</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>Open Source</h2>
+            <p>WebLab-Deusto is Open Source and it requires exclusively Open Source technologies. It also supports proprietary technologies for optional extensions.</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h2>Lightweight</h2>
+            <p>WebLab-Deusto supports common scale deployments (e.g., MySQL, Redis and Apache in multiple servers). However, it also supports running the whole system in lightweight, low cost devices <a href="http://weblabdeusto.readthedocs.org/en/latest/performance.html#raspberry-pi-and-low-cost-devices">(such as Raspberry Pi)</a>.</p>
+        </div>
+
+    </div>
+</div>
 
 {% endblock %}
