@@ -2,4 +2,141 @@
 {% extends "_base.html" %}
 {% block body %}
 
+<div class="container">
+
+    <div class="page-header">
+        <h1>Labs at Deusto</h1>
+    </div>
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>Robot</h2>
+
+            <p>The Robot lab lets you program the bot yourself, with any program you wish.</p>
+
+            <p>The bot uses a PIC processor, so the program should be written using the PIC compiler. It is noteworthy that the bot has, among other things, infrared sensors, to which the developer has access.</p>
+
+            <div class="text-center">
+                <img src="assets/img/robot.jpg" width="50%"/>
+            </div>
+
+            <p><b>Target audience:</b> engineering students in general, certain secondary schools.</p>
+
+            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=Robot%20experiments&exp.name=robot-movement"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+            <span class="spacer"></span>
+            <a class="btn btn-success" href="http://weblabdeusto.readthedocs.org/en/latest/sample_labs.html#robot"><span class="glyphicon glyphicon-list-alt"></span> Read more</a>
+            <span class="spacer"></span>
+            <button class="btn btn-danger" onClick="loadVideo(this, 'http://www.youtube.com/embed/1WWAZVyuOBg', 1.4)"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
+        </div>
+
+        <div class="col-lg-6">
+            <h2>FPGA</h2>
+
+        </div>
+
+    </div>
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>Aquarium</h2>
+        </div>
+
+        <div class="col-lg-6">
+            <h2>VISIR</h2>
+
+            <p><a href="http://openlabs.bth.se/electronics">BTH OpenLabs VISIR</a> (Virtual Instrument Systems In Reality) is a Remote Laboratory developed in the <a href="http://www.bth.se/">Blekinge Institute of Technology</a>, which supports remote experimentation with real electronic circuits.</p>
+
+            <p>Students create circuits using the web interface, such as the following (where two resistors, of 10k and 1k are placed in serial and connected to the Digital MultiMeter):</p>
+
+            <div class="text-center">
+                <img src="assets/img/visir_circuit.png" width="60%"/>
+            </div>
+
+            <p>And as a result of this, the digital multimeter will show the sum of the two resistors:</p>
+
+            <div class="text-center">
+                <img src="assets/img/visir_result.png" width="60%"/>
+            </div>
+
+
+            <p><b>Target audience:</b> It depends on how many principles are taught. It has been used with secondary school students, as well as with electronics engineering courses.</p>
+
+
+            <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/client/#page=experiment&exp.category=Visir%20experiments&exp.name=visir"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+            <span class="spacer"></span>
+            <a class="btn btn-success" href="http://weblabdeusto.readthedocs.org/en/latest/sample_labs.html#visir"><span class="glyphicon glyphicon-list-alt"></span> Read more</a>
+            <span class="spacer"></span>
+            <button class="btn btn-danger" onClick="loadVideo(this, 'http://www.youtube.com/embed/vI5aM6Yq3S4', 1.4)"><span class="glyphicon glyphicon-facetime-video"></span> Watch video</a>
+
+        </div>
+
+    </div>
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>CPLD</h2>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h2>PIC</h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="page-header">
+        <h1>Labs at STU</h1>
+    </div>
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>Control ...</h2>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h2>Bulb</h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="page-header">
+        <h1>Near future</h1>
+    </div>
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>Incubator</h2>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h2>Robot maze</h2>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row vmargin-20">
+        <div class="col-lg-6">
+            <h2>Elevator</h2>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h2>Robotic arm</h2>
+
+
+        </div>
+    </div>
+
+
+</div>
+
 {% endblock %}
