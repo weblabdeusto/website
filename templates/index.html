@@ -1,4 +1,5 @@
 {% set link="home" %}
+{% set title="Front page" %}
 {% extends "_base.html" %}
 {% block body %}
 <div class="container">
@@ -12,21 +13,20 @@
         </div>
 
         <div class="row vmargin-20">
-            <div class="col-lg-1 col-lg-push-4">
+            <div class="col-lg-1 col-lg-push-4 text-center">
                 <a class="btn btn-primary" href="https://www.weblab.deusto.es/weblab/"><span class="glyphicon glyphicon-play"></span> Try it!</a>
             </div>
 
-            <div class="col-lg-1 col-lg-push-6">
+            <div class="col-lg-1 col-lg-push-6 text-center">
                 <a class="btn btn-default" href="https://weblabdeusto.readthedocs.org/"><span class="glyphicon glyphicon-download"></span> Download</a>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-8">
-            <img src="assets/img/weblab_boxes.png" height="250px"/>
-            <span class="spacer"></span>
-            <img src="assets/img/weblab_web.png"   height="250px"/>
+        <div class="col-lg-8 text-center">
+            <img src="assets/img/weblab_boxes.png" height="250px" style="margin-left: 30px; margin-right: 30px"/>
+            <img src="assets/img/weblab_web.png"   height="250px" style="margin-left: 30px; margin-right: 30px"/>
         </div>
         <div class="col-lg-4 text-center">
             <h2>What is a remote lab?</h2>
