@@ -34,9 +34,7 @@ function Paper(data) {
         }
     });
 
-    this.html = function() {
-        return "<p id='" + self.id + "'>Paper..." + data['title'] + " " + data['location'] + "</p>";
-    }
+    self.$element = $("<p id='" + self.id + "'>Paper..." + data['title'] + " " + data['location'] + "</p>");
 
     this.hide = function() {
         if (self.visible) {
@@ -86,6 +84,116 @@ function colorPerTag(tag) {
     }
 }
 
+function TagButton(name, paper_set) {
+    var self = this;
+
+    self.tag_id = 'paper_tag_' + wrapWord(name);
+    self.paper_set   = paper_set;
+    self.papers      = [];
+    self.name        = name;
+    self.color_class = colorPerTag(name);
+    self.current_status = true;
+
+    self.$element = $('<button/>', {
+        'text'  : name,
+        'class' : 'btn ' + self.color_class,
+        'type'  : 'button',
+        'id'    : self.tag_id,
+        'style' : 'margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
+    });
+
+    self.$element.click(function() {
+        if(self.current_status)
+            self.deactivate();
+        else
+            self.activate();
+    });
+
+    self.addPaper = function(paper) {
+        self.papers.push(paper);
+    }
+
+    self.getPapers = function() {
+        return self.papers;
+    }
+
+    self.activated = function() {
+        return self.current_status;
+    }
+
+    self.activate = function() {
+        if (!self.current_status) {
+            self.current_status = true;
+            self.$element.addClass(self.color_class);
+            self.paper_set.updateVisiblePapers();
+        }
+    }
+
+    self.deactivate = function() {
+        if (self.current_status) {
+            self.current_status = false;
+            self.$element.removeClass(self.color_class);
+            self.paper_set.updateVisiblePapers();
+        }
+    }
+
+}
+
+function ToggleTagsButton(tags) {
+
+    var self = this;
+    self.tags = tags;
+    var activated = true;
+
+    var $toggleTagsButton = $('<div/>', {
+        'class' : 'btn btn-warning',
+        'style' : 'margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
+    });
+    var $toggleTagsText = $('<span/>', {
+        'class' : 'glyphicon glyphicon-unchecked'
+    });
+    $toggleTagsButton.append($toggleTagsText);
+    $toggleTagsButton.click(function() {
+        var anyActivated = false;
+        for(var tag in self.tags)
+            if(self.tags[tag].activated()) {
+                anyActivated = true;
+                break;
+            }
+        if (anyActivated) {
+            // Turn all off
+            for(var tag in self.tags)
+                self.tags[tag].deactivate();
+            self.deactivate();
+        } else {
+            // Turn all on
+            for(var tag in self.tags)
+                self.tags[tag].activate();
+            self.activate();
+        }
+    });
+
+    self.activate = function() {
+        if (!self.activated) {
+            self.activated = true;
+            $toggleTagsButton.addClass('btn-warning');
+            $toggleTagsText.addClass('glyphicon-unchecked');
+            $toggleTagsText.removeClass('glyphicon-check');
+        }
+    }
+
+    self.deactivate = function() {
+        if (self.activated) {
+            self.activated = false;
+            $toggleTagsButton.removeClass('btn-warning');
+            $toggleTagsText.removeClass('glyphicon-unchecked');
+            $toggleTagsText.addClass('glyphicon-check');
+        }
+    }
+
+    self.$element = $toggleTagsButton;
+}
+
 function PaperSet(papers) {
     var self = this;
     if (papers == undefined) {
@@ -93,18 +201,19 @@ function PaperSet(papers) {
     } else {
         self.papers = papers;
     }
-    self.per_tag = {};
-    self.tag_status = {
-        // tag : true/false (true: activated)
+    self.tags = {
+        // tag : TagButton
     };
+
+    self.toggleTagsButton = new ToggleTagsButton(self.tags);
 
     self.addPaper = function(paper) {
         $(paper.tags).each( function (pos, tag) {
-            if ( tag in self.per_tag) {
-                self.per_tag[tag].push(paper);
+            if ( tag in self.tags) {
+                self.tags[tag].addPaper(paper);
             } else {
-                self.per_tag[tag] = [paper];
-                self.tag_status[tag] = true;
+                self.tags[tag] = new TagButton(tag, self);
+                self.tags[tag].addPaper(paper);
             }
         });
         self.papers.push(paper);
@@ -117,15 +226,17 @@ function PaperSet(papers) {
     self.updateVisiblePapers = function() {
         var invisiblePapers = {};
         var visiblePapers = {};
+        var anyVisible = false;
 
         // First: add visible and invisible papers to the lists
-        for (var tag in self.per_tag) {
-            if(self.tag_status[tag]) {
-                $(self.per_tag[tag]).each(function (pos, paper) {
+        for (var tag in self.tags) {
+            if(self.tags[tag].activated()) {
+                $(self.tags[tag].getPapers()).each(function (pos, paper) {
                     visiblePapers[paper.id] = paper; // Override is fine
+                    anyVisible = true;
                 });
             } else {
-                $(self.per_tag[tag]).each(function (pos, paper) {
+                $(self.tags[tag].getPapers()).each(function (pos, paper) {
                     invisiblePapers[paper.id] = paper; // Override is fine
                 });
             }
@@ -137,80 +248,27 @@ function PaperSet(papers) {
                 invisiblePapers[paper_id].hide();
 
         // Third: show visible papers
-        for (var paper_id in visiblePapers) 
+        for (var paper_id in visiblePapers) {
             visiblePapers[paper_id].show();
+        }
+        
+        if (anyVisible) 
+            self.toggleTagsButton.activate();
+        else
+            self.toggleTagsButton.deactivate();
     }
 
     self.html = function(where) {
-
         var $where = $(where);
 
-        var buttons = {};
+        $where.append(self.toggleTagsButton.$element);
 
-        function generate_click(tag, $button) { 
-            return function () {
-                var newStatus = self.tag_status[tag] = !self.tag_status[tag];
-                if (newStatus)
-                    $button.addClass(colorPerTag(tag));
-                else
-                    $button.removeClass(colorPerTag(tag));
-
-                self.updateVisiblePapers();
-            }
-        }
-
-        var $toggleTagsButton = $('<div/>', {
-            'class' : 'btn btn-warning',
-            'style' : 'margin-right: 5px'
-        });
-        var $toggleTagsText = $('<span/>', {
-            'class' : 'glyphicon glyphicon-unchecked'
-        });
-        $toggleTagsButton.append($toggleTagsText);
-        $toggleTagsButton.click(function() {
-            var anyActivated = false;
-            for(var tag in self.tag_status)
-                if(self.tag_status[tag]) {
-                    anyActivated = true;
-                    break;
-                }
-            if (anyActivated) {
-                // Turn all off
-                for(var tag in self.tag_status)
-                    if (self.tag_status[tag])
-                        generate_click(tag, buttons[tag])();
-                $toggleTagsButton.removeClass('btn-warning');
-                $toggleTagsText.removeClass('glyphicon-unchecked');
-                $toggleTagsText.addClass('glyphicon-check');
-            } else {
-                // Turn all on
-                for(var tag in self.tag_status)
-                    if (!self.tag_status[tag])
-                        generate_click(tag, buttons[tag])();
-                $toggleTagsButton.addClass('btn-warning');
-                $toggleTagsText.addClass('glyphicon-unchecked');
-                $toggleTagsText.removeClass('glyphicon-check');
-            }
-        });
-        $where.append($toggleTagsButton);
-
-        for(var tag in self.per_tag) {
-            var tag_id = 'paper_tag_' + wrapWord(tag);
-
-            var $button = $('<button/>', {
-                'text'  : tag,
-                'class' : 'btn ' + colorPerTag(tag),
-                'type'  : 'button',
-                'id'    : tag_id,
-                'style' : 'margin-right: 5px'
-            });
-            $button.click(generate_click(tag, $button));
-            buttons[tag] = $button;
-            $where.append($button);
+        for(var tag in self.tags) {
+            $where.append(self.tags[tag].$element);
         };
 
         $(self.papers).each(function (pos, paper) {
-            $where.append($(paper.html()));
+            $where.append(paper.$element);
         });
     }
 }
