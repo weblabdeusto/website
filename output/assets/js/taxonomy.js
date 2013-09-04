@@ -1,4 +1,17 @@
 var TAXONOMY = {
+    "Conference" : {
+        "Core A" : {},
+        "Core B" : {},
+        "Core C" : {},
+    },
+    "Journal" : {
+        "JCR" : {
+            "JCR Q1" : {},
+            "JCR Q2" : {},
+            "JCR Q3" : {},
+            "JCR Q4" : {},
+        },
+    },
     "Usage Analysis" : {
         "Learning Analytics" : {}
     },
@@ -32,10 +45,12 @@ var TAXONOMY = {
 var TAXONOMY_INVERSE = {};
 function buildTaxonomyIndex(current_dict, previous) {
     for (var key in current_dict ) {
-        TAXONOMY_INVERSE[key] = previous.slice(0);
+        var key_lower = key.toLowerCase();
         var new_previous = previous.slice(0); // Clone
         new_previous.push(key);
+        TAXONOMY_INVERSE[key_lower] = new_previous;
         buildTaxonomyIndex(current_dict[key], new_previous);
     };
 }
 buildTaxonomyIndex(TAXONOMY, []);
+console.log(TAXONOMY_INVERSE);

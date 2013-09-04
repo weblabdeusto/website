@@ -1,13 +1,47 @@
 var CONFERENCE = 'conference';
-var JOURNAL    = 'journal';
-var CORE_A = 'core A';
-var CORE_B = 'core B';
-var CORE_C = 'core C';
+var CORE_A = 'Core A';
+var CORE_B = 'Core B';
+var CORE_C = 'Core C';
 
-var METADATA = [ CONFERENCE, JOURNAL, CORE_A, CORE_B, CORE_C ];
+var JOURNAL    = 'journal';
+var JCR = "JCR";
+var JCR_Q1 = "JCR Q1";
+var JCR_Q2 = "JCR Q2";
+var JCR_Q3 = "JCR Q3";
+var JCR_Q4 = "JCR Q4";
+
+var DISSERTATION = 'dissertation';
+
+var INTERNATIONAL = "International";
+var NATIONAL = "National";
+
+var METADATA = [ 
+                 DISSERTATION,
+                 CONFERENCE, 
+                    CORE_A.toLowerCase(), CORE_B.toLowerCase(), CORE_C.toLowerCase(),
+                 JOURNAL, JCR,
+                    JCR_Q1.toLowerCase(), JCR_Q2.toLowerCase(), JCR_Q3.toLowerCase(), JCR_Q4.toLowerCase(),
+                 INTERNATIONAL, NATIONAL
+        ];
 
 function wrapWord(word) {
     return word.toLowerCase().split(" ").join("_");
+}
+
+function colorPerTag(tag) {
+    var COLORS = {
+        'year'     : 'btn-danger',
+        'metadata' : 'btn-info',
+        'tag'      : 'btn-success'
+    };
+
+    if ($.isNumeric(tag)) {
+        return COLORS['year'];
+    } else if (METADATA.indexOf(tag.toLowerCase()) >= 0) {
+        return COLORS['metadata'];
+    } else {
+        return COLORS['tag'];
+    }
 }
 
 function Paper(data) {
@@ -15,26 +49,43 @@ function Paper(data) {
 
     self.id = 'paper_title_' + wrapWord(data['title']);
     self.visible = true;
-    self.tags = data['tags'].slice(0);
-    self.tags.push(data['year']);
+    var first_tags = data['tags'].slice(0);
+    first_tags.push(data['year']);
+    first_tags.push(data['type']);
     
+    self.tags = [];
 
     // Expand tags
-    $(this.tags).each(function (pos, tag) {
-        if ( tag in TAXONOMY_INVERSE) {
-            $(TAXONOMY_INVERSE[tag]).each( function(pos, inferred_tag) {
+    $(first_tags).each(function (pos, tag) {
+        if ( tag.toLowerCase() in TAXONOMY_INVERSE) {
+            $(TAXONOMY_INVERSE[tag.toLowerCase()]).each( function(pos, inferred_tag) {
                 if (self.tags.indexOf(inferred_tag) < 0) {
                     self.tags.push(inferred_tag);
                 }
             });
-        } else if ( METADATA.indexOf(tag) >= 0) {
+        } else if ( METADATA.indexOf(tag.toLowerCase()) >= 0) {
             // Do nothing
+            self.tags.push(tag);
         } else {
-            console.log("Invalid tag, ignoring " + tag);
+            console.log("Invalid tag " + tag + "; adding it anyway.");
+            self.tags.push(tag);
         }
     });
 
-    self.$element = $("<p id='" + self.id + "'>Paper..." + data['title'] + " " + data['location'] + "</p>");
+    var authors = data['authors'].join(', ');
+    var citation = "";
+    if (data['type'] == CONFERENCE) {
+        citation = data['conference_title'];
+        if(data['conference_shorttitle'])
+            citation += " (" + data['conference_shorttitle'] + data['year'] + ")"
+        if(data['location'])
+            citation += " " + data['location'];
+    } else if (data['type'] == JOURNAL) {
+        
+    } else {
+        
+    }
+    self.$element = $("<p id='" + self.id + "'>" + authors + ". <b><i>" + data['title'] + "</b></i> " + citation + "</p>");
 
     this.hide = function() {
         if (self.visible) {
@@ -68,22 +119,6 @@ function Paper(data) {
     }
 }
 
-function colorPerTag(tag) {
-    var COLORS = {
-        'year'     : 'btn-danger',
-        'metadata' : 'btn-info',
-        'tag'      : 'btn-success'
-    };
-
-    if ($.isNumeric(tag)) {
-        return COLORS['year'];
-    } else if (METADATA.indexOf(tag) >= 0) {
-        return COLORS['metadata'];
-    } else {
-        return COLORS['tag'];
-    }
-}
-
 function TagButton(name, paper_set) {
     var self = this;
 
@@ -99,7 +134,7 @@ function TagButton(name, paper_set) {
         'class' : 'btn ' + self.color_class,
         'type'  : 'button',
         'id'    : self.tag_id,
-        'style' : 'margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
+        'style' : 'margin-top: 5px; margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
     });
 
     self.$element.click(function() {
@@ -147,7 +182,7 @@ function ToggleTagsButton(tags) {
 
     var $toggleTagsButton = $('<div/>', {
         'class' : 'btn btn-warning',
-        'style' : 'margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
+        'style' : 'margin-top: 5px; margin-right: 5px; margin-left: 5px; margin-bottom: 5px'
     });
     var $toggleTagsText = $('<span/>', {
         'class' : 'glyphicon glyphicon-unchecked'
