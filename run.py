@@ -1,8 +1,14 @@
 import os
-from staticjinja import Renderer
 
+from staticjinja import Renderer
+from optparse import OptionParser
 
 if __name__ == "__main__":
+    parser = OptionParser()
+    parser.add_option("-s", "--dont-stop", dest="dont_stop",
+                    help="Don't stop for reloading", action='store_true', default=False)
+    (options, args) = parser.parse_args()
+
     def filter_func(filepath):
         filename = os.path.basename(filepath)
         if filename.startswith(('.', '_')):
@@ -17,4 +23,4 @@ if __name__ == "__main__":
 
     renderer = Renderer(outpath='./output', rules = [ ('.*.swp', dont_render) ])
     renderer.filter_func = filter_func
-    renderer.run(debug=True, use_reloader=True)
+    renderer.run(debug=True, use_reloader = not options.dont_stop)
