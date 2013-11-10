@@ -21,6 +21,6 @@ if __name__ == "__main__":
         print "Rendering..."
         pass
 
-    renderer = Renderer(outpath='./output', rules = [ ('.*.swp', dont_render) ])
+    renderer = Renderer(outpath='./output', rules = [ ('.*.tmp', dont_render), ('.*.swx', dont_render) ])
     renderer.filter_func = filter_func
     renderer.run(debug=True, use_reloader = not options.dont_stop)
