@@ -7,6 +7,7 @@
 
     <div class="page-header">
         <h1>Labs at Deusto</h1>
+        <p>This is a selection of the laboratories available in the <a href="http://www.deusto.es/" target="_blank">University of Deusto</a>.</p>
     </div>
 
     <div class="row vmargin-20">
@@ -199,25 +200,37 @@
 
 
     <div class="page-header">
-        <h1>Labs at STU</h1>
+        <h1>Labs at STU <a href="http://kirp50.chtf.stuba.sk/" target="_blank"><span class="glyphicon glyphicon-link"></span></a></h1>
+        <p>These laboratories are not developed in the University of Deusto. For further information, you should contact Martin Kalúz ( <span class="stubamail">martin.kaluz</span> <span class="mydomain">[at] stuba.sk</span>).
     </div>
 
     <div class="row vmargin-20">
         <div class="col-lg-6">
-            <h2>Control ...</h2>
+            <h2>Thermal plant</h2>
 
-            <p>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+            <p>Provided remote labs are based on unified hardware architecture of industrial aimed devices including programmable logic controllers (PLC) and industrial network routers (INR) eWON4005cd. This multipurpose hardware architecture (MHA) is designed for controlling remote equipment in term of signal control, therefore the overall physical setup allows developers to include any experimental device that can be physically connected to PLC. While PLCs are used as base control unit, INR provides the supervision layer for single or several experimental nodes (PLC + experimental device) over local area network within physical laboratories of institute.</p>
+
+            <div class="text-center">
+                <img src="assets/img/stuba_lab.png" width="70%"/>
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-primary" href="http://kirp50.chtf.stuba.sk/weblab/client/index.html?locale=es#page=experiment&exp.category=Control%20labs&exp.name=thermal-plant-udaq28lt"><span class="glyphicon glyphicon-play"></span> Try it!</a>
+                <span class="spacer"></span>
+                <a class="btn btn-success" href="http://dx.doi.org/10.3182/20130828-3-UK-2039.00048"><span class="glyphicon glyphicon-list-alt"></span> Read more</a>
+            </div>
         </div>
 
-        <div class="col-lg-6">
+<!--        <div class="col-lg-6">
             <h2>Bulb</h2>
 
             <p>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
-
+-->
     </div>
 
 
+<!--
     <div class="page-header">
         <h1>Near future</h1>
     </div>
@@ -252,8 +265,22 @@
             <p>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
     </div>
-
+-->
 
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function(){
+        $(".stubamail").each(function(index) {
+            var addr = $(this).text().replace(/\n/g,"").replace(/ /g,"");
+            $(this).html('<a href="mailto:'+addr+'@stuba.sk" >'+ addr +'@stuba.sk</a>');
+        });
+        $(".mydomain").each(function(index) {
+            $(this).hide();
+        });
+    });
+</script>
 {% endblock %}
