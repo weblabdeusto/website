@@ -1,0 +1,74 @@
+{% set link="other_projects" %}
+{% set title="Boole-Deusto" %}
+{% extends "_base.html" %}
+{% block body %}
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Download</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <p>Boole-Deusto is available for download here. The latest version is 
+            <a href="assets/files/boole_ja14_en.zip">Boole Jan. 2014 (English)</a></p>
+
+            <div class="text-center">
+                <a href="assets/files/boole_ja14_en.zip">
+                    <img width="10%" src="assets/img/download_icon.svg"/>
+                </a>
+            </div>
+
+            <p>
+            Boole-Deusto is Open Source. Traditionally it has been hosted in SourceForge, but for the latest versions we have moved to a
+            <a href="https://github.com/zstars/booledeusto">GitHub repository</a>.
+            </p>
+
+        </div>
+
+    </div>
+
+    
+    <div class="page-header">
+        <h1>About</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <p>Boole-Deusto is an educational software tool for Digital Electronics. Digital electronic circuits can be classified in two large groups: combinational and sequential circuits, depending on whether they have a memory (and are hence sequential) or not. Boole-Deusto supports both types, as long as they are bit-level. 
+            </p>
+
+            <p>
+            Unlike other, sometimes more advanced tools, Boole-Deusto is especially oriented for students. Focusing on the design process, students can use Boole-Deusto through every step in a digital circuit's design, getting involved only to the extent they (or their teacher) desires. That is, it can be used to generate a circuit straightaway, or it can walk through every step involved (such as Karnaugh Maps and logic simplification).
+            </p>
+        </div>
+        <div class="col-lg-6 text-center">
+            <img width="80%" src="assets/img/booledeusto.jpg"/>
+        </div>
+
+    </div>
+
+    <div class="page-header">
+        <h1>History</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <p>In the 1990s, there were already several powerful professional analysis and design tools available. Unfortunately, these didn't really suit our academic needs because
+            they were not really oriented to an educative settings. Also, though a few tools had been developed specifically for the classroom, these didn't meet our expectations either. What this means is, essentially, that Boole-Deusto isn't meant to replace Electronics WorkBench, Xilinx's ISE or Or-CAD, etc. Its purpose is quite different: to make life easier for students and teachers of digital electronics.</p>
+
+            <p>With this in mind, we decided to restrict BOOLE to bit-level combinational systems and finite-state machines, choosing not to include word-level circuits (adders, codifiers, counters, etc.) since those are covered adequately by (for example) EWB. Furthermore, since we also set out to use BOOLE in first-year logic design courses, the exercises would naturally would be simple and small, so bit-level circuits would be enough for our needs. Although we have used BOOLE with very complex circuits, it is not its intended use, and we advise against using it for professional purposes.</p>
+
+            <p>In general, BOOLE is a didactic software package, focused on the methodology of the exercises, easy to install, easy to use, graphical, and available in several languages: English, Spanish, and Basque. “Ease of use” is the key concept in BOOLE, so we hope many users will be relieved to see that installation is painless and that the user manual is not 400 pages long.</p>
+
+            <p>
+            Originally, Boole-Deusto was developed as a stand-alone package. Now, however, though it can still be used stand-alone, its features have been extended with WebLab-Deusto (Remote Laboratory) integration. The system as a whole can provide a more comprehensive learning experience for the student, who can, in just a few minutes, design a digital system and test in a real hardware, requiring only Boole-Deusto and a Web browser.
+            </p>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
