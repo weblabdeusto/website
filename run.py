@@ -47,7 +47,7 @@ if __name__ == "__main__":
     if options.customwatch:
         options.dont_stop = True
 
-    renderer = Renderer(outpath='./output', rules=[('.*.tmp', dont_render), ('.*.swx', dont_render)])
+    renderer = Renderer(outpath='./output', rules=[('.*.tmp', dont_render), ('.*.swx', dont_render), ('.*.swp', dont_render)])
     renderer._env.filters["markdown"] = markdown_filter
     renderer._env.filters['datetimeformat'] = datetimeformat
     renderer.filter_func = filter_func
