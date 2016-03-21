@@ -10,6 +10,5 @@ watchdog==0.7.0
 wsgiref==0.1.2
 yolk==0.4.3
 Markdown==2.5.1
+3to2==1.1.1
 mdx-smartypants==1.5.1
-
-
