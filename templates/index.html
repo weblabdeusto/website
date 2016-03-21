@@ -43,7 +43,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4 text-center">
+        <div class="col-lg-6 text-center">
             <h2>What is it?</h2>
 
             <p>WebLab-Deusto is an initiative of the <a href="http://www.deusto.es/">University of Deusto</a> aiming to increase the experiential learning by the use and development of remote laboratories. To this end, <a href="labs.html">several laboratories</a> are offered for free through the Internet, the <a href="software.html">underlying software</a> is available under an Open Source license and <a href="equipment.html">equipment</a> can be duplicated.</p>
@@ -55,12 +55,13 @@
 
         </div>
 
-        <div class="col-lg-4 text-center">
+        <div class="col-lg-6 text-center">
             <h2>Who uses it?</h2>
 
             <p>WebLab-Deusto is used by universities (faculties of engineering) and secondary schools from <a href="http://weblab.deusto.es/olarex/">different countries worldwide</a>, as well as in multiple <a href="projects.html">research projects</a>. The software system is available in over 10 languages.</p>
         </div>
 
+        <!--
         <div class="col-lg-4 text-center">
             <h2>News <img src="assets/img/feed_icon.png" width="30px" style="margin-bottom: 5px; margin-left: 15px"/></h2>
 
@@ -69,6 +70,7 @@
             </div>
             <a href="https://weblab.deusto.es/web/">more...</a>
         </div>
+        -->
     </div>
 
     <div class="page-header">
@@ -179,6 +181,7 @@
 
 {% block scripts %}
 <script type="text/javascript">
+    /*
     $(function(){
         var jqxhr = $.get("https://weblab.deusto.es/webcam/rss/feed")
           .done(function(data) { 
@@ -213,5 +216,6 @@
             $("#news_contents").html("<div class='alert alert-danger'><b>Oh no!</b> I couldn't load news at this moment. <br/> Try back later.</div>");
           });
     });
+    */
 </script>
 {% endblock %}
